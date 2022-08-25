@@ -1,0 +1,18 @@
+---
+import { Markdown, markdown } from '@astropub/md'
+---
+<html lang="en">
+	<head>
+		<meta charset="utf-8" />
+		<link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+		<meta name="viewport" content="width=device-width" />
+		<meta name="generator" content={Astro.generator} />
+		<title>Astro Markdown</title>
+	</head>
+	<body>
+		<Markdown of={`# Astro Markdown`}>
+			<h1>Fallback</h1>
+		</Markdown>
+		{await markdown(`Welcome to my _website_.`)}
+	</body>
+</html>

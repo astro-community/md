@@ -1,0 +1,53 @@
+{
+	"$schema": "https://json.schemastore.org/package.json",
+	"name": "@astropub/md",
+	"description": "Render arbitrary Markdown content in Astro",
+	"version": "0.1.0",
+	"type": "module",
+	"license": "CC0-1.0",
+	"exports": {
+		".": {
+			"default": "./astro-md.js",
+			"types": "./astro-md.d.ts"
+		},
+		"./astro-md": {
+			"default": "./astro-md.js",
+			"types": "./astro-md.d.ts"
+		},
+		"./Markdown": {
+			"default": "./lib/component.js",
+			"types": "./lib/component.d.ts"
+		},
+		"./global": "./global.d.ts",
+		"./global.d": "./global.d.ts",
+		"./global.d.ts": "./global.d.ts",
+		"./package": "./package.json",
+		"./package.json": "./package.json"
+	},
+	"main": "astro-md.js",
+	"types": "astro-md.d.ts",
+	"unpkg": "astro-md.js",
+	"jsdelivr": "astro-md.js",
+	"sideEffects": false,
+	"files": [
+		"astro-md.js",
+		"astro-md.d.ts",
+		"global.d.ts",
+		"lib"
+	],
+	"keywords": [
+		"astro",
+		"astro-integration",
+		"astro-component",
+		"ui",
+		"commonmark",
+		"markdown",
+		"md",
+		"render",
+		"remark"
+	],
+	"author": "Jonathan Neal <jonathantneal@hotmail.com>",
+	"bugs": "https://github.com/astro-community/astro-flow/issues",
+	"homepage": "https://github.com/astro-community/astro-flow",
+	"repository": "https://github.com/astro-community/astro-flow.git"
+}
