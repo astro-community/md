@@ -1,6 +1,6 @@
 {
 	"name": "astro-md-demo",
-	"version": "0.1.0",
+	"version": "0.1.1",
 	"type": "module",
 	"private": true,
 	"scripts": {
@@ -11,7 +11,7 @@
 		"astro": "astro"
 	},
 	"devDependencies": {
-		"@astropub/md": "0.1.0",
+		"@astropub/md": "0.1.1",
 		"astro": "latest"
 	}
 }

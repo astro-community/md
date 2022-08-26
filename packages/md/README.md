@@ -9,7 +9,7 @@
 ---
 import { Markdown } from '@astropub/md'
 ---
-<Markdown of={`# Hi, there!` /* Renders as `<h1>Hi, there!</h1>` */} />
+<Markdown of={`# Hi, there!` /* Renders `<h1>Hi, there!</h1>` */} />
 ```
 
 ```astro
@@ -17,7 +17,7 @@ import { Markdown } from '@astropub/md'
 import { markdown } from '@astropub/md'
 ---
 {
-  /* Renders as `<h1>Hi, there!</h1>` */
+  /* Renders `<h1>Hi, there!</h1>` */
   await markdown(`# Hi, there!`)
 }
 ```
@@ -73,6 +73,28 @@ export default defineConfig({
 ```
 
 Now `markdown` configuration is automatically applied to `<Markdown>` components and `markdown()` functions.
+
+Use `markdown.inline()` or `<Markdown.Inline>` to handle short strings of text without the surrounding paragraph.
+
+```astro
+---
+import { Markdown } from '@astropub/md'
+---
+<Markdown.Inline of={
+  /* Renders `Welcome to my <em>website</em>.` */
+  `Welcome to my _website_.`
+} />
+```
+
+```astro
+---
+import { markdown } from '@astropub/md'
+---
+{await markdown.inline(
+  /* Renders `Welcome to my <em>website</em>.` */
+  `Welcome to my _website_.`
+)}
+```
 
 <br />
 

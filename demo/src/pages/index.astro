@@ -14,5 +14,11 @@ import { Markdown, markdown } from '@astropub/md'
 			<h1>Fallback</h1>
 		</Markdown>
 		{await markdown(`Welcome to my _website_.`)}
+		<p>
+			{await markdown.inline(`I made it _just_ for you.`)}
+		</p>
+		<p>
+			<Markdown.Inline of={`I _really_ mean it.`} />
+		</p>
 	</body>
 </html>

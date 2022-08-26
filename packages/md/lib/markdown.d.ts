@@ -2,7 +2,14 @@ import type { MarkdownRenderingOptions, MarkdownRenderingResult } from '@astrojs
 
 export type { MarkdownRenderingOptions, MarkdownRenderingResult }
 
-export function markdown(
-	content: string,
-	options?: MarkdownRenderingOptions
-): Promise<String>
+export var markdown: {
+	(
+		content: string,
+		options?: MarkdownRenderingOptions
+	): Promise<String>
+
+	inline(
+		content: string,
+		options?: MarkdownRenderingOptions
+	): Promise<String>
+}

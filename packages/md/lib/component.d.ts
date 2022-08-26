@@ -4,6 +4,14 @@ export interface Props {
 	[name: string]: any
 }
 
-export function Markdown(props: Props): any
+export var Markdown: {
+	(
+		props: Props
+	): any
+
+	Inline(
+		props: Props
+	): any
+}
 
 export default Markdown
