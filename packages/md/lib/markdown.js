@@ -1,5 +1,6 @@
 import { renderMarkdown } from '@astrojs/markdown-remark'
 import { shared } from './shared.js'
+import { HTMLString } from './html-string.js'
 
 export async function markdown(
 	/** @type {string} */ content,
@@ -9,7 +10,7 @@ export async function markdown(
 		...shared.markdownConfig,
 		...Object(options),
 	}).then(
-		result => new String(result.code)
+		result => new HTMLString(result.code)
 	)
 }
 
@@ -21,7 +22,7 @@ markdown.inline = async function inlinemarkdown(
 		...shared.markdownConfig,
 		...Object(options),
 	}).then(
-		result => new String(
+		result => new HTMLString(
 			result.code.indexOf('<p>') === 0 &&
 			result.code.indexOf('</p>') === result.code.length - 4
 				? result.code.slice(3, -4)
