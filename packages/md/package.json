@@ -1,8 +1,8 @@
 {
 	"$schema": "https://json.schemastore.org/package.json",
 	"name": "@astropub/md",
-	"description": "Render arbitrary Markdown content in Astro",
-	"version": "0.1.2",
+	"description": "Render any Markdown content in Astro",
+	"version": "0.1.3",
 	"type": "module",
 	"license": "CC0-1.0",
 	"exports": {
@@ -38,17 +38,21 @@
 	"keywords": [
 		"astro",
 		"astro-component",
-		"astro-integration",
 		"withastro",
 		"ui",
 		"commonmark",
+		"config",
+		"configuration",
+		"content",
+		"html",
+		"inline",
 		"markdown",
 		"md",
 		"render",
 		"remark"
 	],
 	"author": "Jonathan Neal <jonathantneal@hotmail.com>",
-	"bugs": "https://github.com/astro-community/astro-flow/issues",
-	"homepage": "https://github.com/astro-community/astro-flow",
-	"repository": "https://github.com/astro-community/astro-flow.git"
+	"bugs": "https://github.com/astro-community/md/issues",
+	"homepage": "https://github.com/astro-community/md",
+	"repository": "https://github.com/astro-community/md.git"
 }

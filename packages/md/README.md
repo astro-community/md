@@ -1,6 +1,6 @@
 # Astro Markdown <img src="https://jonneal.dev/astro-logo.svg" alt="" width="90" height="90" align="right">
 
-**Astro Markdown** lets you render arbitrary Markdown content in **[Astro](https://astro.build)**, optionally integrating with any existing configuration.
+**Astro Markdown** lets you render any Markdown content in **[Astro](https://astro.build)**, optionally integrating with any existing configuration.
 
 [![NPM Version][npm-img]][npm-url]
 [![Open in StackBlitz][stackblitz-img]][stackblitz-url]
