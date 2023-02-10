@@ -13,6 +13,7 @@ export const Markdown = Object.assign(
 				if (typeof mdl === 'string') {
 					yield await markdown(mdl, {
 						fileURL: new URL(import.meta.url),
+						contentDir: new URL('./', import.meta.url),
 					})
 				} else {
 					yield renderSlot(result, slots.default)
@@ -34,6 +35,7 @@ export const Markdown = Object.assign(
 						if (typeof mdl === 'string') {
 							yield await markdown.inline(mdl, {
 								fileURL: new URL(import.meta.url),
+								contentDir: new URL('./', import.meta.url),
 							})
 						} else {
 							yield renderSlot(result, slots.default)

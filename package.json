@@ -1,7 +1,7 @@
 {
-	"name": "astro-md-root",
+	"name": "@astrojs/md.root",
 	"type": "module",
-	"version": "0.1.4",
+	"private": true,
 	"workspaces": [
 		"demo",
 		"packages/*"
@@ -27,6 +27,5 @@
 	"devDependencies": {
 		"astro": "latest",
 		"types-object": "latest"
-	},
-	"private": true
+	}
 }
