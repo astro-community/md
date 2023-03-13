@@ -2,7 +2,7 @@
 	"$schema": "https://json.schemastore.org/package.json",
 	"name": "@astropub/md",
 	"description": "Render any Markdown content in Astro",
-	"version": "0.1.5",
+	"version": "0.2.0",
 	"type": "module",
 	"license": "CC0-1.0",
 	"exports": {
@@ -23,6 +23,9 @@
 		"./global.d.ts": "./global.d.ts",
 		"./package": "./package.json",
 		"./package.json": "./package.json"
+	},
+	"peerDependencies": {
+		"@astrojs/markdown-remark": "^1 || ^2"
 	},
 	"main": "astro-md.js",
 	"types": "astro-md.d.ts",

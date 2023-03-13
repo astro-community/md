@@ -1,7 +1,7 @@
 {
 	"name": "@astrojs/md.demo",
-	"type": "module",
 	"private": true,
+	"type": "module",
 	"scripts": {
 		"start": "astro dev",
 		"build": "astro build",
@@ -9,7 +9,7 @@
 		"astro": "astro"
 	},
 	"devDependencies": {
-		"@astropub/md": "0.1.4",
+		"@astropub/md": "0.2.0",
 		"astro": "latest"
 	}
 }
