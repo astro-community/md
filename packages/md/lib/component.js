@@ -1,4 +1,4 @@
-import { renderSlot } from 'astro/server/render/index.js'
+import { renderSlot } from 'astro/runtime/server/index.js'
 import { markdown } from './markdown.js'
 
 export const Markdown = Object.assign(
