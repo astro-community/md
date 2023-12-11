@@ -25,7 +25,7 @@
 		"./package.json": "./package.json"
 	},
 	"peerDependencies": {
-		"@astrojs/markdown-remark": "^3"
+		"@astrojs/markdown-remark": "^4"
 	},
 	"main": "astro-md.js",
 	"types": "astro-md.d.ts",
