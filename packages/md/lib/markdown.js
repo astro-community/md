@@ -1,10 +1,10 @@
-import { createMarkdownProcessor } from "@astrojs/markdown-remark";
-import { shared } from "./shared.js";
-import { HTMLString } from "./html-string.js";
+import { createMarkdownProcessor } from '@astrojs/markdown-remark'
+import { shared } from './shared.js'
+import { HTMLString } from './html-string.js'
 
 export async function markdown(
 	/** @type {string} */ content,
-	/** @type {MarkdownRenderingOptions} */ options = null,
+	/** @type {MarkdownRenderingOptions} */ options = null
 ) {
 	const processor = await createMarkdownProcessor({
 		...shared.markdownConfig,
@@ -17,7 +17,7 @@ export async function markdown(
 
 markdown.inline = async function inlinemarkdown(
 	/** @type {string} */ content,
-	/** @type {MarkdownRenderingOptions} */ options = null,
+	/** @type {MarkdownRenderingOptions} */ options = null
 ) {
 	const processor = await createMarkdownProcessor({
 		...shared.markdownConfig,
