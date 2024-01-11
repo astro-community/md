@@ -15,13 +15,6 @@ import { Markdown } from '@astropub/md'
 
 ```astro
 ---
-import { Markdown } from '@astropub/md'
----
-<Markdown of={`# Hi, there!` /* Renders `<h1>Hi, there!</h1>` */} />
-```
-
-```astro
----
 import { markdown } from '@astropub/md'
 ---
 {

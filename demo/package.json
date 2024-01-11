@@ -9,7 +9,7 @@
 		"astro": "astro"
 	},
 	"devDependencies": {
-		"@astropub/md": "file:../packages/md",
-		"astro": "latest"
+		"@astropub/md": "0.4.0",
+		"astro": "4"
 	}
 }
