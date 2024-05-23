@@ -6,10 +6,10 @@ export var markdown: {
 	(
 		content: string,
 		options?: MarkdownRenderingOptions
-	): Promise<String>
+	): Promise<string>
 
 	inline(
 		content: string,
 		options?: MarkdownRenderingOptions
-	): Promise<String>
+	): Promise<string>
 }
