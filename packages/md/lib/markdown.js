@@ -2,16 +2,15 @@ import { createMarkdownProcessor } from '@astrojs/markdown-remark'
 import { shared } from './shared.js'
 import { HTMLString } from './html-string.js'
 
+const processor = await createMarkdownProcessor({
+	...shared.markdownConfig,
+});
+
 export async function markdown(
 	/** @type {string} */ content,
 	/** @type {MarkdownRenderingOptions} */ options = null
 ) {
-	const processor = await createMarkdownProcessor({
-		...shared.markdownConfig,
-		...Object(options),
-	});
-
-	const result = await processor.render(content);
+	const result = await processor.render(content, options);
 	return new HTMLString(result.code);
 }
 
@@ -19,12 +18,7 @@ markdown.inline = async function inlinemarkdown(
 	/** @type {string} */ content,
 	/** @type {MarkdownRenderingOptions} */ options = null
 ) {
-	const processor = await createMarkdownProcessor({
-		...shared.markdownConfig,
-		...Object(options),
-	});
-
-	const result = await processor.render(content);
+	const result = await processor.render(content, options);
 
 	return new HTMLString(
 		result.code.indexOf("<p>") === 0 &&
