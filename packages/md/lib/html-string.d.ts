@@ -1,3 +1,3 @@
 export declare class HTMLString extends String {
-	get [Symbol.toStringTag](): string;
+	get [Symbol.toStringTag](): string
 }
