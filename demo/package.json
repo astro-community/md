@@ -9,7 +9,8 @@
 		"astro": "astro"
 	},
 	"devDependencies": {
-		"@astropub/md": "*",
-		"astro": "4"
-	}
+		"@mashehu/astropub-md": "*",
+		"astro": "7"
+	},
+	"version": "3.0.0"
 }

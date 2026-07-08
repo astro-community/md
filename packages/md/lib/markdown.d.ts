@@ -1,15 +1,15 @@
-import type { MarkdownRenderingOptions, MarkdownRenderingResult } from '@astrojs/markdown-remark'
+import type { CompileOptions } from 'satteri'
 
-export type { MarkdownRenderingOptions, MarkdownRenderingResult }
+export type { CompileOptions }
 
 export var markdown: {
 	(
 		content: string,
-		options?: MarkdownRenderingOptions
+		options?: CompileOptions
 	): Promise<string>
 
 	inline(
 		content: string,
-		options?: MarkdownRenderingOptions
+		options?: CompileOptions
 	): Promise<string>
 }

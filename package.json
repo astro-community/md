@@ -13,7 +13,7 @@
 		"start": "cd demo; astro dev",
 		"build": "cd demo; astro build",
 		"serve": "cd demo; astro preview",
-		"release": "npm --workspaces publish --access public"
+		"release": "npm --workspaces packages/md --access public"
 	},
 	"prettier": {
 		"semi": false,
@@ -25,7 +25,8 @@
 		"startCommand": "npm start"
 	},
 	"devDependencies": {
-		"astro": "4",
+		"astro": "7",
 		"types-object": "latest"
-	}
+	},
+	"version": "3.0.0"
 }

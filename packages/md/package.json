@@ -1,8 +1,8 @@
 {
 	"$schema": "https://json.schemastore.org/package.json",
-	"name": "@astropub/md",
-	"description": "Render any Markdown content in Astro",
-	"version": "1.0.0",
+	"name": "@mashehu/astropub-md",
+	"description": "Render any Markdown content in Astro. Forked from @astropub/md",
+	"version": "3.0.0",
 	"type": "module",
 	"license": "CC0-1.0",
 	"exports": {
@@ -25,7 +25,10 @@
 		"./package.json": "./package.json"
 	},
 	"peerDependencies": {
-		"@astrojs/markdown-remark": "^5"
+		"astro": "^7"
+	},
+	"dependencies": {
+		"satteri": "^0.9.2"
 	},
 	"main": "astro-md.js",
 	"types": "astro-md.d.ts",
@@ -52,10 +55,17 @@
 		"markdown",
 		"md",
 		"render",
-		"remark"
+		"satteri"
 	],
 	"author": "Jonathan Neal <jonathantneal@hotmail.com>",
-	"bugs": "https://github.com/astro-community/md/issues",
-	"homepage": "https://github.com/astro-community/md",
-	"repository": "https://github.com/astro-community/md.git"
+	"contributors": [
+		"mashehu"
+	],
+	"bugs": "https://github.com/mashehu/astropub-md/issues",
+	"homepage": "https://github.com/mashehu/astropub-md",
+	"repository": {
+		"type": "git",
+		"url": "git+https://github.com/mashehu/astropub-md.git",
+		"directory": "packages/md"
+	}
 }

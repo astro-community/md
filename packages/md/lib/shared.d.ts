@@ -1,7 +1,7 @@
-import type { AstroConfig } from 'astro'
+import type { CompileOptions } from 'satteri'
 
 export interface Shared {
-	markdownConfig: AstroConfig['markdown']
+	markdownConfig: CompileOptions
 }
 
 export const shared: Shared

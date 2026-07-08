@@ -1,4 +1,4 @@
-export const symbol = Symbol.for('@astropub/md')
+export const symbol = Symbol.for('@mashehu/astropub-md')
 
 export const shared = /** @type {Shared} */ (
 	globalThis[symbol] || (

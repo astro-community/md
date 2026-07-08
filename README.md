@@ -1,21 +1,23 @@
+> [!IMPORTANT]
+> This is a fork of [@astropub/md](https://github.com/astro-community/md) — all the original hard work was done by its authors. This fork swaps the rendering engine from remark/rehype to **[Sätteri](https://satteri.bruits.org/)** (a Rust-backed Markdown pipeline) and targets **Astro 7**.
+
 # Astro Markdown <img src="https://jonneal.dev/astro-logo.svg" alt="" width="90" height="90" align="right">
 
-**Astro Markdown** lets you render any Markdown content in **[Astro](https://astro.build)**, optionally integrating with any existing configuration.
+**Astro Markdown** lets you render any Markdown content in **[Astro](https://astro.build)**, powered by **[Sätteri](https://satteri.bruits.org/)**.
 
 [![NPM Version][npm-img]][npm-url]
 [![NPM Downloads][download-img]][download-url]
-[![Open in StackBlitz][stackblitz-img]][stackblitz-url]
 
 ```astro
 ---
-import { Markdown } from '@astropub/md'
+import { Markdown } from '@mashehu/astropub-md'
 ---
 <Markdown of={`# Hi, there!` /* Renders `<h1>Hi, there!</h1>` */} />
 ```
 
 ```astro
 ---
-import { markdown } from '@astropub/md'
+import { markdown } from '@mashehu/astropub-md'
 ---
 {
   /* Renders `<h1>Hi, there!</h1>` */
@@ -28,14 +30,14 @@ import { markdown } from '@astropub/md'
 Add **Astro Markdown** to your project.
 
 ```shell
-npm install @astropub/md
+npm install @mashehu/astropub-md
 ```
 
 Use **Astro Markdown** in your project.
 
 ```astro
 ---
-import { markdown } from '@astropub/md'
+import { markdown } from '@mashehu/astropub-md'
 ---
 <html lang="en">
   <head>
@@ -53,33 +55,45 @@ Welcome to my _website_.`
 </html>
 ```
 
-Optionally, integrate **Astro Markdown** with your existing Astro configuration.
+Optionally, add the integration. It inherits the relevant parts of your Astro `markdown` configuration (`gfm` and `smartypants`) and lets you pass [Sätteri](https://satteri.bruits.org/) options directly.
 
 ```js
 // astro.config.js
 import { defineConfig } from 'astro/config'
-import markdownIntegration from '@astropub/md'
+import markdownIntegration from '@mashehu/astropub-md'
 
 export default defineConfig({
   integrations: [
-    markdownIntegration(),
+    markdownIntegration({
+      // Sätteri `CompileOptions` — applied to every render
+      features: {
+        gfm: true,
+        smartPunctuation: true,
+        // math: true,
+        // wikilinks: true,
+      },
+      // mdastPlugins: [],
+      // hastPlugins: [],
+    }),
   ],
   markdown: {
-    remarkPlugins: [],
-    rehypePlugins: [],
-    // syntaxHighlight: 'shiki'
-    // syntaxHighlight: 'prism'
-  }
+    // `gfm` and `smartypants` are mapped onto Sätteri features automatically
+    gfm: true,
+    smartypants: true,
+  },
 })
 ```
 
-Now `markdown` configuration is automatically applied to `<Markdown>` components and `markdown()` functions.
+> [!NOTE]
+> Sätteri does **not** use the remark/rehype ecosystem, so Astro's `remarkPlugins`, `rehypePlugins`, and `syntaxHighlight` options have no effect here. Use Sätteri's own [`mdastPlugins` / `hastPlugins`](https://satteri.bruits.org/) instead, passed to `markdownIntegration()` or per call as the second argument to `markdown()`.
+
+Now that configuration is automatically applied to `<Markdown>` components and `markdown()` functions.
 
 Use `markdown.inline()` or `<Markdown.Inline>` to handle short strings of text without the surrounding paragraph.
 
 ```astro
 ---
-import { Markdown } from '@astropub/md'
+import { Markdown } from '@mashehu/astropub-md'
 ---
 <Markdown.Inline of={
   /* Renders `Welcome to my <em>website</em>.` */
@@ -89,7 +103,7 @@ import { Markdown } from '@astropub/md'
 
 ```astro
 ---
-import { markdown } from '@astropub/md'
+import { markdown } from '@mashehu/astropub-md'
 ---
 {await markdown.inline(
   /* Renders `Welcome to my <em>website</em>.` */
@@ -119,7 +133,7 @@ Inside of this Astro project, you'll see the following folders and files:
         └── ...etc
 ```
 
-This project uses **workspaces** to develop a single package, `@astropub/md`.
+This project uses **workspaces** to develop a single package, `@mashehu/astropub-md`.
 
 It also includes a minimal Astro project, `demo`, for developing and demonstrating the component.
 
@@ -135,16 +149,13 @@ All commands are run from the root of the project, from a terminal:
 | `npm run serve` | Preview your build locally, before deploying |
 
 Want to learn more?
-Read the [Astro documentation][docs-url] or jump into the [Astro Discord][chat-url].
+Read the [Sätteri documentation][satteri-url], the [Astro documentation][docs-url], or jump into the [Astro Discord][chat-url].
 
 [chat-url]: https://astro.build/chat
 [docs-url]: https://github.com/withastro/astro
+[satteri-url]: https://satteri.bruits.org/
 
-[npm-img]: https://img.shields.io/npm/v/@astropub/md?color=%23444&label=&labelColor=%23CB0000&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjE1MCAxNTAgNDAwIDQwMCIgZmlsbD0iI0ZGRiI+PHBhdGggZD0iTTE1MCA1NTBoMjAwVjI1MGgxMDB2MzAwaDEwMFYxNTBIMTUweiIvPjwvc3ZnPg==&style=for-the-badge
-[npm-url]: https://www.npmjs.com/package/@astropub/md
-[stackblitz-img]: https://img.shields.io/badge/-Open%20in%20Stackblitz-%231374EF?color=%23444&labelColor=%231374EF&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjEwIDggMTIgMTgiIGhlaWdodD0iMTgiIGZpbGw9IiNGRkYiPjxwYXRoIGQ9Ik0xMCAxNy42aDUuMmwtMyA3LjRMMjIgMTQuNGgtNS4ybDMtNy40TDEwIDE3LjZaIi8+PC9zdmc+&style=for-the-badge
-[stackblitz-url]: https://stackblitz.com/github/astro-community/md
-[bundlejs-img]: https://img.shields.io/badge/dynamic/json?url=https://bundlejs.com/api?q=@astropub/md&query=size.totalCompressedSize&color=%23444&labelColor=%233B82F6&label=&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjAgMCA3MDAgNzAwIiBmaWxsPSIjRkZGIj4KCTxwYXRoIGQ9Ik0xNDYgMkExNzEgMTcxIDAgMCAwIDMgMTM5bC0yIDExdjQwMmwyIDExYzE1IDcyIDcxIDEyNSAxNDMgMTM2bDIwOSAxIDE5OS0xIDktMmM3MC0xNiAxMTktNjYgMTM0LTEzNWwyLTEwVjE1MGwtMi0xMkExNzEgMTcxIDAgMCAwIDU2MiAzbC0xMC0yLTE5OS0xQzE4NyAwIDE1MyAwIDE0NiAyem0xODEgMjUxdjM2bDctM2MxMy02IDMzLTkgNTAtNyA0MSA1IDcwIDM0IDgwIDc4IDIgMTIgMiA0MSAwIDUzLTUgMjItMTMgMzgtMjcgNTJhODIgODIgMCAwIDEtNjMgMjZjLTE1IDAtMTkgMC0yNS0yLTEwLTItMTctNi0yNC0xMGwtNS0zdjExaC00NVYyMTdoNTJ2MzZ6bTI5IDcxYy0yMCAzLTMyIDE5LTM1IDQ4LTMgMjUgMyA0OCAxNCA2MCA1IDYgMTMgMTAgMjMgMTEgMjUgNCA0NC05IDUxLTM2bDMtMTljMC0xNy0xLTI3LTctMzktOS0xOS0yNi0yOC00OS0yNXoiLz4KPC9zdmc+&style=for-the-badge
-[bundlejs-url]: https://bundlejs.com/?bundle&q=@astropub/md
-[download-url]: https://www.npmjs.com/package/@astropub/md
-[download-img]: https://img.shields.io/badge/dynamic/json?url=https://api.npmjs.org/downloads/point/last-week/@astropub/md&query=downloads&label=⇓+week&color=%23444&labelColor=%23EEd100&style=for-the-badge
+[npm-img]: https://img.shields.io/npm/v/@mashehu/astropub-md?color=%23444&label=&labelColor=%23CB0000&logo=data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHZpZXdCb3g9IjE1MCAxNTAgNDAwIDQwMCIgZmlsbD0iI0ZGRiI+PHBhdGggZD0iTTE1MCA1NTBoMjAwVjI1MGgxMDB2MzAwaDEwMFYxNTBIMTUweiIvPjwvc3ZnPg==&style=for-the-badge
+[npm-url]: https://www.npmjs.com/package/@mashehu/astropub-md
+[download-url]: https://www.npmjs.com/package/@mashehu/astropub-md
+[download-img]: https://img.shields.io/badge/dynamic/json?url=https://api.npmjs.org/downloads/point/last-week/@mashehu/astropub-md&query=downloads&label=⇓+week&color=%23444&labelColor=%23EEd100&style=for-the-badge

@@ -1,5 +1,6 @@
 import type { AstroIntegration } from 'astro'
+import type { CompileOptions } from 'satteri'
 
-export function mdAstro(): AstroIntegration
+export function mdAstro(options?: CompileOptions): AstroIntegration
 
 export type { AstroIntegration }
